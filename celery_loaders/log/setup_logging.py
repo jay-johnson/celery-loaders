@@ -56,7 +56,7 @@ def setup_logging(default_level=logging.INFO,
 def build_logger(
     name=os.getenv(
         "LOG_NAME",
-        "drf"),
+        "worker"),
     config="logging.json",
     log_level=logging.INFO,
     log_config_path="{}/logging.json".format(
@@ -91,7 +91,7 @@ def build_logger(
 def build_colorized_logger(
     name=os.getenv(
         "LOG_NAME",
-        "drf"),
+        "worker"),
     config="colors-logging.json",
     log_level=logging.INFO,
     log_config_path="{}/logging.json".format(

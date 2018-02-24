@@ -51,7 +51,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "celery_loaders"))
 setup(
     name="celery-loaders",
     cmdclass={"build_py": build_py},
-    version="1.0.0",
+    version="1.0.1",
     description="Celery Application and Task Loader Examples",
     long_description="Examples for loading celery applications with " +
     "easy-to-discover task modules",
