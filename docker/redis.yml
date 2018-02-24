@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+
+  # Redis
+  celredis1:
+    hostname: redis1
+    image: redis:4.0.5-alpine
+    ports:
+      - "6379:6379"
+    container_name: "celredis1"
