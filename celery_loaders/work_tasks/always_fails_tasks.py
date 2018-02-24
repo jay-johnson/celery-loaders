@@ -19,7 +19,7 @@ def always_fails(
     :param work_dict: dictionary for key/values
     """
 
-    label = "do_some_work"
+    label = "always_fails"
 
     log.info(("task - {} - start "
               "work_dict={}")
