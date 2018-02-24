@@ -120,4 +120,4 @@ def build_colorized_logger(
         default_path=use_config)
 
     return logging.getLogger(name)
-# end of build_logger
+# end of build_colorized_logger
