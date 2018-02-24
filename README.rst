@@ -1,7 +1,7 @@
 Examples for Celery Applications and Task Loading
 =================================================
 
-This is an example for running Celery applications that demonstrates how to load multiple task modules from different files using environment variables. It also shows how to utilize a ``get celery config`` approach that allows for decoupling inclusion of tasks from the initialization of the Celery application. It also includes a derived Celery task called ``CustomTask`` for showing how to handle ``on_success`` and ``on_faiure`` task control events. I find this easier to manage my Celery workers and the applications that publish tasks to them.
+This is an example for running Celery applications that demonstrates how to load multiple task modules from different files using environment variables. It also shows how to utilize a ``get celery config`` approach that allows for decoupling inclusion of tasks from the initialization of the Celery application. It also includes a derived Celery task called ``CustomTask`` for showing how to handle ``on_success`` and ``on_failure`` task control events. I find this easier to manage my Celery workers and the applications that publish tasks to them.
 
 This is not an official Celery project, it is just examples I use to test my workers and tasks.
 
