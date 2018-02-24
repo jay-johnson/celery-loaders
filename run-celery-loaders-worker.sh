@@ -1,6 +1,8 @@
 #!/bin/bash
 
-source ~/.venvs/celeryloaders/bin/activate
+if [[ -e ~/.venvs/celeryloaders/bin/activate ]]; then
+    source ~/.venvs/celeryloaders/bin/activate
+fi
 
 cd celery_loaders
 num_workers=1
