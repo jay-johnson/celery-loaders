@@ -6,7 +6,7 @@ fi
 
 cd celery_loaders
 num_workers=1
-log_level=INFO
+log_level=DEBUG
 worker_module=celery_worker
 worker_name="default@%h"
 

@@ -14,7 +14,7 @@ def setup_celery_logging(**kwargs):
     pass
 
 
-name = "worker"
+name = "run-tests"
 log = build_colorized_logger(name=name)
 
 log.info(("start - {}")
@@ -48,7 +48,7 @@ log.info(("broker={} backend={}")
              broker_url,
              backend_url))
 
-# Get the Celery app from the ecommerce project's get_celery_app
+# Get the Celery app project's get_celery_app
 app = get_celery_app(
     name=name,
     auth_url=broker_url,

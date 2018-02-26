@@ -1,3 +1,4 @@
+import uuid
 from celery.task import task
 from celery_loaders.log.setup_logging import build_colorized_logger
 from celery_loaders.work_tasks.custom_task import CustomTask
@@ -26,8 +27,15 @@ def do_some_work(
              .format(label,
                      work_dict))
 
-    log.info(("task - {} - done")
-             .format(label))
+    ret_data = {
+        "job_results": ("some response key={}").format(
+                            str(uuid.uuid4()))
+    }
 
-    return True
+    log.info(("task - {} - result={} done")
+             .format(
+                 ret_data,
+                 label))
+
+    return ret_data
 # end of do_some_work
