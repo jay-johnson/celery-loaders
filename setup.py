@@ -21,7 +21,6 @@ install_requires = [
     "celery>=4.1.0",
     "colorlog",
     "coverage",
-    "docker-compose",
     "flake8>=3.4.1",
     "future",
     "kombu>=4.1.0",
@@ -51,7 +50,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "celery_loaders"))
 setup(
     name="celery-loaders",
     cmdclass={"build_py": build_py},
-    version="1.0.4",
+    version="1.0.5",
     description="Celery Application and Task Loader Examples",
     long_description="Examples for loading celery applications with " +
     "easy-to-discover task modules",
