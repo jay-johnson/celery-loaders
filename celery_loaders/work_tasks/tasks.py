@@ -1,11 +1,7 @@
 import uuid
 from celery.task import task
-from celery_loaders.log.setup_logging import build_colorized_logger
+from spylunking.log.setup_logging import build_colorized_logger
 from celery_loaders.work_tasks.custom_task import CustomTask
-
-
-name = "tasks"
-log = build_colorized_logger(name=name)
 
 
 @task(
@@ -19,6 +15,9 @@ def do_some_work(
 
     :param work_dict: dictionary for key/values
     """
+
+    log = build_colorized_logger(
+        name='do_some_work')
 
     label = "do_some_work"
 

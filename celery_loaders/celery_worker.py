@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 import os
+from spylunking.log.setup_logging import build_colorized_logger
 from celery import signals
-from celery_loaders.log.setup_logging import build_colorized_logger
 from celery_loaders.work_tasks.get_celery_app import get_celery_app
 
 
@@ -14,7 +14,8 @@ def setup_celery_logging(**kwargs):
 
 
 name = "worker"
-log = build_colorized_logger(name=name)
+log = build_colorized_logger(
+    name=name)
 
 log.info(("start - {}")
          .format(name))
@@ -47,7 +48,8 @@ app = get_celery_app(
     name=name,
     auth_url=broker_url,
     backend_url=backend_url,
-    include_tasks=include_tasks)
+    include_tasks=include_tasks,
+    worker_hijack_root_logger=False)
 
 log.info("starting celery")
 app.start()

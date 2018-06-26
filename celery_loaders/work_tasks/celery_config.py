@@ -8,6 +8,9 @@ result_backend = "redis://localhost:6379/10"
 # while increasing reliability
 
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-worker_prefetch_multiplier  # noqa
+worker_hijack_root_logger = False
+
+# http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-worker_prefetch_multiplier  # noqa
 worker_prefetch_multiplier = 1
 
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-broker_heartbeat  # noqa
