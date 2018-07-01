@@ -3,6 +3,10 @@ import celery
 from spylunking.log.setup_logging import build_colorized_logger
 
 
+log = build_colorized_logger(
+    name='get_celery_app')
+
+
 def get_celery_app(
         name=os.getenv(
             "CELERY_NAME",
@@ -34,8 +38,6 @@ def get_celery_app(
     :param path_to_config_module: config module
     :param worker_log_format: format for logs
     """
-    log = build_colorized_logger(
-        name='get_celery_app')
 
     if len(include_tasks) == 0:
         log.error(("creating celery app={} MISSING tasks={}")

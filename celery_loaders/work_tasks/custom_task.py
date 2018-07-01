@@ -2,6 +2,10 @@ import celery
 from spylunking.log.setup_logging import build_colorized_logger
 
 
+log = build_colorized_logger(
+    name='custom-task')
+
+
 class CustomTask(celery.Task):
     """CustomTask"""
 
@@ -17,8 +21,6 @@ class CustomTask(celery.Task):
         :param args: arguments passed into task
         :param kwargs: keyword arguments passed into task
         """
-        log = build_colorized_logger(
-            name='task.on_success')
 
         log.info(("{} SUCCESS - retval={} task_id={} "
                   "args={} kwargs={}")
@@ -41,8 +43,7 @@ class CustomTask(celery.Task):
         :param kwargs: keyword arguments passed into task
         :param einfo: exception info
         """
-        log = build_colorized_logger(
-            name='task.on_failure')
+
         use_exc = str(exc)
         log.error(("{} FAIL - exc={} "
                    "args={} kwargs={}")

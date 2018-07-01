@@ -5,7 +5,7 @@ if [[ -e ~/.venvs/celeryloaders/bin/activate ]]; then
 fi
 
 cd celery_loaders
-num_workers=1
+num_workers=4
 log_level=DEBUG
 worker_module=celery_worker
 worker_name="default@%h"
@@ -24,13 +24,7 @@ if [[ "${WORKER_NAME}" != "" ]]; then
 fi
 
 echo ""
-if [[ "${num_workers}" == "1" ]]; then
-    echo "Starting Worker=${worker_module}"
-    echo "celery worker -A ${worker_module} -c ${num_workers} -l ${log_level} -n ${worker_name}"
-    celery worker -A $worker_module -c ${num_workers} -l ${log_level} -n ${worker_name}
-else
-    echo "Starting Workers=${worker_module}"
-    echo "celery worker multi -A ${worker_module} -c ${num_workers} -l ${log_level} -n ${worker_name}"
-    celery worker multi -A $worker_module -c ${num_workers} -l ${log_level} -n ${worker_name}
-fi
+echo "Starting Workers=${worker_module}"
+echo "celery worker -A ${worker_module} -c ${num_workers} -l ${log_level} -n ${worker_name}"
+celery worker -A $worker_module -c ${num_workers} -l ${log_level} -n ${worker_name}
 echo ""

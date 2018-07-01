@@ -3,6 +3,10 @@ from spylunking.log.setup_logging import build_colorized_logger
 from celery_loaders.work_tasks.custom_task import CustomTask
 
 
+log = build_colorized_logger(
+    name='always_fails_tasks')
+
+
 @task(
     bind=True,
     base=CustomTask,
@@ -14,9 +18,6 @@ def always_fails(
 
     :param work_dict: dictionary for key/values
     """
-
-    log = build_colorized_logger(
-        name='always_fails_tasks')
 
     label = "always_fails"
 
