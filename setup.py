@@ -13,6 +13,13 @@ try:
 except ImportError:
     from distutils.command.build_py import build_py
 
+"""
+https://packaging.python.org/guides/making-a-pypi-friendly-readme/
+check the README.rst works on pypi as the
+long_description with:
+twine check dist/*
+"""
+long_description = open('README.rst').read()
 
 cur_path, cur_script = os.path.split(sys.argv[0])
 os.chdir(os.path.abspath(cur_path))
@@ -51,10 +58,9 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "celery_loaders"))
 setup(
     name="celery-loaders",
     cmdclass={"build_py": build_py},
-    version="1.0.7",
+    version="1.0.8",
     description="Celery Application and Task Loader Examples",
-    long_description="Examples for loading celery applications with " +
-    "easy-to-discover task modules",
+    long_description=long_description,
     author="Jay Johnson",
     author_email="jay.p.h.johnson@gmail.com",
     url="https://github.com/jay-johnson/celery-loaders",
